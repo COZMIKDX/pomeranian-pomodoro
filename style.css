@@ -1,0 +1,47 @@
+.main-container {
+
+}
+
+.timer-container {
+
+}
+
+.row {
+    display: flex;
+    flex-direction: row;
+}
+
+.title {
+
+}
+
+.title::before {
+    content: "";
+    background-image: url("./assets/rock.png");
+    background-size: 27px;
+    background-repeat: no-repeat;
+    width: 27px;
+    height: 27px;
+}
+
+.title::after {
+    content: "";
+    background-image: url("./assets/rock.png");
+    background-size: 27px;
+    background-repeat: no-repeat;
+    width: 27px;
+    height: 27px;
+}
+
+.timer-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.timer-box {
+
+}
+
+.button-bar {
+
+}
