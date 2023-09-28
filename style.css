@@ -9,7 +9,7 @@
 }
 
 .pink-border {
-    border: 2px solid rgb(204, 60, 131);
+    border: .5vw solid rgb(204, 60, 131);
 }
 
 .pink-font {
@@ -17,6 +17,7 @@
 }
 
 .timer-container {
+    box-sizing: border-box;
     background: rgb(255, 174, 129);
     background: linear-gradient(0deg, rgba(255, 174, 129, 1) 0%, rgba(255, 211, 164, 1) 100%);
     width: 100%;
