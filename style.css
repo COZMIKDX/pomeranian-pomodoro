@@ -1,9 +1,33 @@
 .main-container {
+    background-color: rgb(145, 137, 156);
+    box-sizing: border-box;
+    width: 70%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
 
+.pink-border {
+    border: 2px solid rgb(204, 60, 131);
+}
+
+.pink-font {
+    color: rgb(206, 60, 131);
 }
 
 .timer-container {
+    background: rgb(255, 174, 129);
+    background: linear-gradient(0deg, rgba(255, 174, 129, 1) 0%, rgba(255, 211, 164, 1) 100%);
+    width: 100%;
+    aspect-ratio: 920/544;
 
+    border-radius: 5vw;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
 }
 
 .row {
@@ -11,26 +35,32 @@
     flex-direction: row;
 }
 
-.title {
+.dog {
+    width: 75%;
+    height: 75%;
+    z-index: 1;
+}
 
+.title {
+    font-size: 5vw;
 }
 
 .title::before {
     content: "";
     background-image: url("./assets/rock.png");
-    background-size: 27px;
+    background-size: 7vw;
     background-repeat: no-repeat;
-    width: 27px;
-    height: 27px;
+    width: 7vw;
+    height: 7vw;
 }
 
 .title::after {
     content: "";
     background-image: url("./assets/rock.png");
-    background-size: 27px;
+    background-size: 7vw;
     background-repeat: no-repeat;
-    width: 27px;
-    height: 27px;
+    width: 7vw;
+    height: 7vw;
 }
 
 .timer-container {
@@ -39,9 +69,38 @@
 }
 
 .timer-box {
-
+    background-color: rgb(255, 231, 207);
+    aspect-ratio: 826/262;
+    width: 90%;
+    border-radius: 5vw;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+    font-size: 15vw;
 }
 
 .button-bar {
+    justify-content: space-around;
+    width: 100%;
+}
 
+.button {
+    box-sizing: border-box;
+    aspect-ratio: 275/110;
+    width: 30%;
+    border-radius: 2vw;
+    font-size: 5vw;
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.button:nth-child(1) {
+    background-color: rgb(255, 180, 222)
+}
+
+.button:nth-child(2) {
+    background-color: rgb(198 ,236, 255);
 }
