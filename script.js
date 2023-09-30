@@ -1,10 +1,10 @@
 let timer = document.querySelector(".timer");
 
-let seconds = 20
-;
-let minutes = 0;
+let seconds = 2;
+let minutes = 1;
 let interval = 1000;
 let expectedTime = Date.now() + interval;
+let timerId;
 function updateTimer() {
     var drift = Date.now() - expectedTime; // how off the timer is.
     if (drift > interval) {
@@ -23,7 +23,30 @@ function updateTimer() {
     }
 
     expectedTime += interval; // The next time it should trigger.
-    setTimeout(updateTimer, Math.max(0, interval - drift)); // Either trigger immediately or adjust the interval based on drift.
+    timerId = setTimeout(updateTimer, Math.max(0, interval - drift)); // Either trigger immediately or adjust the interval based on drift.
 }
 
-setTimeout(updateTimer, interval);
+timerId = setTimeout(updateTimer, interval);
+
+let buttons = document.querySelectorAll(".button");
+let leftButton = buttons[0];
+let rightButton = buttons[1];
+let play = false;
+
+leftButton.addEventListener("click", () => {
+
+});
+
+function startTimer(millisec_interval) {
+    timerId = setTimeout(updateTimer, millisec_interval);
+}
+
+function timerUserControlFSM() {
+    if (play == false) {
+        startTimer(interval);
+        play = true;
+    } else if (play == true) {
+        clearTimeout(timerId);
+
+    }
+}
