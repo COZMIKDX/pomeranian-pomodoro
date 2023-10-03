@@ -73,11 +73,11 @@ class PomoTimer {
         if (!this.running) {
             this.timer.startTimer();
             this.running = true;
-            this.playButton.innerHTML = "PAUSE";
+            this.playButton.innerHTML = "Pause";
         } else {
             this.timer.stopTimer();
             this.running = false;
-            this.playButton.innerHTML = "START";
+            this.playButton.innerHTML = "Start";
         }
     }
 
