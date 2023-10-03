@@ -11,7 +11,7 @@ class DynamicTimer {
     }
 
     updateUI() {
-        this.element.innerHTML = this.element.innerHTML = `${this.minutes.toString().padStart(2, "0")}:${this.seconds.toString().padStart(2, "0")}`;
+        this.element.innerHTML = `${this.minutes.toString().padStart(2, "0")}:${this.seconds.toString().padStart(2, "0")}`;
     }
 
     timerTick() {
@@ -58,25 +58,45 @@ class DynamicTimer {
     }
 }
 
-let playButton = document.getElementById("play");
-let resetButton = document.getElementById("set");
-let timer = new DynamicTimer(1000, document.getElementById("timer1"));
-let playing = false;
-let cleanTimer = true;
+class PomoTimer {
+    constructor(playButton, skipButton, timer) {
+        this.playButton = playButton;
+        this.skipButton = skipButton;
+        this.timer = timer; //DynamicTimer object.
+        this.running = false;
 
-playButton.addEventListener("click", () => {
-    if (!playing) {
-        timer.startTimer();
-        playing = true;
-        playButton.innerHTML = "PAUSE";
-    } else {
-        timer.stopTimer();
-        playing = false;
-        playButton.innerHTML = "START";
+        this.startControl = this.startControl.bind(this);
+        this.resetControl = this.resetControl.bind(this);
     }
-});
 
-resetButton.addEventListener("click", () => {
-    timer.stopTimer();
-    timer.setTime(1, 20);
-});
+    startControl() {
+        if (!this.running) {
+            this.timer.startTimer();
+            this.running = true;
+            this.playButton.innerHTML = "PAUSE";
+        } else {
+            this.timer.stopTimer();
+            this.running = false;
+            this.playButton.innerHTML = "START";
+        }
+    }
+
+    resetControl() {
+        this.timer.stopTimer();
+        this.timer.setTime(1, 20);
+    }
+
+    startPomo() {
+        this.playButton.addEventListener("click", this.startControl);
+        this.skipButton.addEventListener("click", this.resetControl);
+    }
+}
+
+let timeText = document.getElementById("timeText");
+let timer = new DynamicTimer(1000, timeText);
+
+let playButton = document.getElementById("leftButton");
+let resetButton = document.getElementById("rightButton");
+let pomodoro = new PomoTimer(playButton, resetButton, timer);
+
+pomodoro.startPomo();
