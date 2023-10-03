@@ -106,3 +106,11 @@
 .button:nth-child(2) {
     background-color: rgb(198 ,236, 255);
 }
+
+.disable-text-select {
+    user-select: none;
+    -webkit-user-select: none;
+    /*Safari*/
+    -moz-user-select: none;
+    /*Firefox*/
+}
