@@ -59,14 +59,18 @@ class DynamicTimer {
 }
 
 class PomoTimer {
-    constructor(playButton, skipButton, timer) {
+    constructor(playButton, skipButton, setButton, workInput, breakInput, timer) {
         this.playButton = playButton;
         this.skipButton = skipButton;
+        this.setButton = setButton;
+        this.workInput = workInput;
+        this.breakInput = breakInput;
         this.timer = timer; //DynamicTimer object.
         this.running = false;
 
         this.startControl = this.startControl.bind(this);
         this.resetControl = this.resetControl.bind(this);
+        this.setTime = this.setTime.bind(this);
     }
 
     startControl() {
@@ -86,9 +90,14 @@ class PomoTimer {
         this.timer.setTime(1, 20);
     }
 
+    setTime(){
+        this.timer.setTime(this.workInput.value, 0);
+    }
+
     startPomo() {
         this.playButton.addEventListener("click", this.startControl);
         this.skipButton.addEventListener("click", this.resetControl);
+        this.setButton.addEventListener("click", this.setTime);
     }
 }
 
@@ -97,6 +106,18 @@ let timer = new DynamicTimer(1000, timeText);
 
 let playButton = document.getElementById("leftButton");
 let resetButton = document.getElementById("rightButton");
-let pomodoro = new PomoTimer(playButton, resetButton, timer);
-
+let setButton = document.getElementById("setButton");
+let pomodoro = new PomoTimer(playButton, resetButton, setButton, workInput, breakInput, timer);
 pomodoro.startPomo();
+
+let header = document.querySelector(".dropdown-header");
+let timerContainer = document.querySelector(".timer-container");
+header.addEventListener("mouseenter", () => {
+    timerContainer.style.height = "80%";
+    console.log("headon");
+});
+
+header.addEventListener("mouseleave", () => {
+    timerContainer.style.height = "70%";
+    console.log("head off");
+});

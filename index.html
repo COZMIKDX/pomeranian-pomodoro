@@ -30,20 +30,27 @@
                     <div id="leftButton" class="button pink-border pink-font"><text>Pause</text></div>
                     <div id="rightButton" class="button pink-border pink-font"><text>Skip</text></div>
                 </div>
-            </div>
-            <div class="dropdown">
-                <text>Settings</text>
-                <div class="dropdown_menu">
-                    <div class="setting-row">
-                        <text>Work time:</text><input type="text" placeholder="MM">:<input type="text" placeholder="SS">
-                    </div>
-                    <div class="setting-row">
-                        <text>Break time:</text><input type="text" placeholder="MM">:<input type="text" placeholder="SS">
+                <div class="dropdown-header">
+                    <text>Settings</text>
+                    <div class="dropdown-menu">
+                        <div class="dropdown-row">
+                            <div class="setting-row">
+                                <label>Work time:</label>
+                                <input id="workInput" type="text" placeholder="MM">
+                            </div>
+                            <div class="setting-row">
+                                <label>Break time:</label>
+                                <input id="breakInput" type="text" placeholder="MM">
+                            </div>
+                        </div>
+                        <div id="setButton" class="button set-button pink-border pink-font disable-text-select">
+                            <text>Set</text>
+                        </div>
+                        
                     </div>
                 </div>
             </div>
         </div>
-            
         <script src="script.js" async defer></script>
     </body>
 </html>
